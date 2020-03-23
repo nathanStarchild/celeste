@@ -1,0 +1,241 @@
+<html lang="en" class=" js csstransitions"><head>
+    <meta charset="UTF-8">
+    <title>Nathan Starchild</title>
+  
+  
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+    <!-- <script async="" src="https://www.google-analytics.com/analytics.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  
+    <!-- <script type="application/javascript" src="/js/modernizr.custom.js"></script> -->
+    <!-- <script type="application/javascript" src="/js/classie.js"></script> -->
+  
+    <!-- <script src="/js/webgl-debug.js"></script> -->
+    <script type="application/javascript" src="wp-includes/js/celeste.js" defer=""></script>
+    <!-- <script type="application/javascript" src="/js/scripts.js" defer=""></script> -->
+    <script data-src="/wp-includes/shaders/vertex.vs" data-name="myShader" type="x-shader/x-vertex"></script>
+    <script data-src="/wp-includes/shaders/fragment.frag" data-name="myShader" type="x-shader/x-fragment"></script>
+  
+  <script>
+      setInterval(function () {
+        var hours = new Date().getHours();
+        $(".hours").html((hours < 10 ? "0" : "") + hours + ":");
+        var minutes = new Date().getMinutes();
+        $(".minutes").html((minutes < 10 ? "0" : "") + minutes + ".");
+        var seconds = new Date().getSeconds();
+        $(".seconds").html((seconds < 10 ? "0" : "") + seconds);
+      }, 1000);
+  </script>
+  
+  
+  <script>
+    var token = "0=7_j^:6=51%0|E";
+  </script>
+  
+  </head>
+  
+  <body>
+  
+    <div id="celeste-grid">
+    <svg id="theLines">
+      <line id="hLine" x1="0%" x2="100%" y1="48.39989364840353%" y2="48.39989364840353%" stroke="white"></line>
+      <line id="vLine" x1="51.34936044065854%" x2="51.34936044065854%" y1="0%" y2="100%" stroke="white"></line>
+    </svg>
+    <div id="celeste-top-left" style="right: 48.6506%;">
+      <div class="top-label" id="light-level1">Light level_&gt; <span id="dreaming">62.56510416666667%</span> __</div>
+      <div class="top-label" id="light-level2">Light level_&gt; <span id="realLight">37.43489583333333%</span> __</div>
+    </div>
+    <div id="celeste-top-right" style="left: 51.3494%;">
+      <div class="top-label" id="sky-dreaming">___ Sky dreaming</div>
+      <div class="top-label" id="real-vision">___ Real vision</div>
+      <div class="top-label" id="time">___ 
+        <span class="hours" id="time_hours">12:</span>
+        <span class="minutes" id="time_minutes">49.</span>
+        <span class="seconds" id="time_seconds">27</span>
+      </div>
+      <div class="top-label" id="date">___ 2020/03/23</div>
+    </div>
+    <div id="celeste-middle" style="bottom: 51.6001%;">
+            <div class="colour-div" id="colour-0" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-0" style="background-color: rgb(75, 98, 140); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-0" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-0" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) 24%, rgba(0, 0, 0, 0) 29%);"></div>
+            <div class="colour-box" id="colour-box-G-0" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 33%, rgba(0, 0, 0, 0) 38%);"></div>
+            <div class="colour-box" id="colour-box-B-0" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 49%, rgba(0, 0, 0, 0) 54%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-0">R:075/G:098/B:140</div>
+        </div>
+            <div class="colour-div" id="colour-1" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-1" style="background-color: rgb(124, 67, 60); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-1" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-1" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) 43%, rgba(0, 0, 0, 0) 48%);"></div>
+            <div class="colour-box" id="colour-box-G-1" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 21%, rgba(0, 0, 0, 0) 26%);"></div>
+            <div class="colour-box" id="colour-box-B-1" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 18%, rgba(0, 0, 0, 0) 23%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-1">R:124/G:067/B:060</div>
+        </div>
+            <div class="colour-div" id="colour-2" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-2" style="background-color: rgb(0, 255, 249); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-2" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-2" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) -5%, rgba(0, 0, 0, 0) 0%);"></div>
+            <div class="colour-box" id="colour-box-G-2" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 95%, rgba(0, 0, 0, 0) 100%);"></div>
+            <div class="colour-box" id="colour-box-B-2" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 92%, rgba(0, 0, 0, 0) 97%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-2">R:000/G:256/B:249</div>
+        </div>
+            <div class="colour-div" id="colour-3" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-3" style="background-color: rgb(0, 255, 30); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-3" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-3" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) -5%, rgba(0, 0, 0, 0) 0%);"></div>
+            <div class="colour-box" id="colour-box-G-3" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 95%, rgba(0, 0, 0, 0) 100%);"></div>
+            <div class="colour-box" id="colour-box-B-3" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 6%, rgba(0, 0, 0, 0) 11%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-3">R:000/G:256/B:030</div>
+        </div>
+            <div class="colour-div" id="colour-4" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-4" style="background-color: rgb(93, 104, 150); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-4" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-4" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) 31%, rgba(0, 0, 0, 0) 36%);"></div>
+            <div class="colour-box" id="colour-box-G-4" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 35%, rgba(0, 0, 0, 0) 40%);"></div>
+            <div class="colour-box" id="colour-box-B-4" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 53%, rgba(0, 0, 0, 0) 58%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-4">R:093/G:104/B:150</div>
+        </div>
+            <div class="colour-div" id="colour-5" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-5" style="background-color: rgb(2, 0, 109); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-5" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-5" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) -5%, rgba(0, 0, 0, 0) 0%);"></div>
+            <div class="colour-box" id="colour-box-G-5" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) -5%, rgba(0, 0, 0, 0) 0%);"></div>
+            <div class="colour-box" id="colour-box-B-5" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 37%, rgba(0, 0, 0, 0) 42%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-5">R:002/G:000/B:109</div>
+        </div>
+            <div class="colour-div" id="colour-6" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-6" style="background-color: rgb(0, 255, 158); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-6" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-6" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) -5%, rgba(0, 0, 0, 0) 0%);"></div>
+            <div class="colour-box" id="colour-box-G-6" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 95%, rgba(0, 0, 0, 0) 100%);"></div>
+            <div class="colour-box" id="colour-box-B-6" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 56%, rgba(0, 0, 0, 0) 61%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-6">R:000/G:256/B:158</div>
+        </div>
+            <div class="colour-div" id="colour-7" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-7" style="background-color: rgb(64, 52, 56); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-7" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-7" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) 20%, rgba(0, 0, 0, 0) 25%);"></div>
+            <div class="colour-box" id="colour-box-G-7" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 15%, rgba(0, 0, 0, 0) 20%);"></div>
+            <div class="colour-box" id="colour-box-B-7" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 16%, rgba(0, 0, 0, 0) 21%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-7">R:064/G:052/B:056</div>
+        </div>
+            <div class="colour-div" id="colour-8" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-8" style="background-color: rgb(78, 101, 145); visibility: visible;"></div>
+          <div class="colour-lines" id="colour-lines-8" style="visibility: visible;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-8" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) 25%, rgba(0, 0, 0, 0) 30%);"></div>
+            <div class="colour-box" id="colour-box-G-8" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 34%, rgba(0, 0, 0, 0) 39%);"></div>
+            <div class="colour-box" id="colour-box-B-8" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 51%, rgba(0, 0, 0, 0) 56%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-8">R:078/G:101/B:145</div>
+        </div>
+            <div class="colour-div" id="colour-9" style="display: flex;">
+          <div class="colour-combined" id="colour-combined-9" style="background-color: rgb(107, 191, 208); visibility: hidden;"></div>
+          <div class="colour-lines" id="colour-lines-9" style="visibility: hidden;">
+            <svg>
+              <line x1="44%" x2="16.7%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="50%" x2="50%" y1="0%" y2="100%" stroke="white"></line>
+              <line x1="56%" x2="83.3%" y1="0%" y2="100%" stroke="white"></line>
+            </svg>
+          </div>
+          <div class="colour-boxes">
+            <div class="colour-box" id="colour-box-R-9" style="background-image: linear-gradient(to top, rgb(255, 0, 0), rgb(255, 0, 0) 36%, rgba(0, 0, 0, 0) 41%);"></div>
+            <div class="colour-box" id="colour-box-G-9" style="background-image: linear-gradient(to top, rgb(0, 255, 0), rgb(0, 255, 0) 69%, rgba(0, 0, 0, 0) 74%);"></div>
+            <div class="colour-box" id="colour-box-B-9" style="background-image: linear-gradient(to top, rgb(0, 0, 255), rgb(0, 0, 255) 76%, rgba(0, 0, 0, 0) 81%);"></div>
+          </div>
+          <div class="colour-values" id="colour-vals-9">R:107/G:191/B:208</div>
+        </div>
+        </div>
+    <div id="celeste-bottom">
+            <div id="location0" class="location-container">
+          <div>Madrid, Spain</div>
+          <div>Lat_&gt; 38.339053 Long_&gt; -0.4879605</div>
+        </div>
+            <div id="location1" class="location-container data-active">
+          <div>Bogota, Colombia</div>
+          <div>Lat_&gt; 4.610276 Long_&gt; -74.069144</div>
+        </div>
+        </div>
+    </div>
+    <div id="license">Celeste by Soliman Lopez and Nathan Starchild<br>
+        License: AGPLv3, <a href="https://github.com/nathanStarchild/celeste">Source Code</a>
+    </div>
+  
+    <canvas id="celeste-canvas" width="1855" height="952"></canvas>
+  
+  
+  
+  </body></html>

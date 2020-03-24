@@ -4,8 +4,8 @@
   
   
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="wp-includes/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="wp-includes/css/celeste1.css">
     <!-- <script async="" src="https://www.google-analytics.com/analytics.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   
@@ -13,7 +13,7 @@
     <!-- <script type="application/javascript" src="/js/classie.js"></script> -->
   
     <!-- <script src="/js/webgl-debug.js"></script> -->
-    <script type="application/javascript" src="wp-includes/js/celeste.js" defer=""></script>
+    <script type="application/javascript" src="wp-includes/js/celeste10.js" defer=""></script>
     <!-- <script type="application/javascript" src="/js/scripts.js" defer=""></script> -->
     <script data-src="/wp-includes/shaders/vertex.vs" data-name="myShader" type="x-shader/x-vertex"></script>
     <script data-src="/wp-includes/shaders/fragment.frag" data-name="myShader" type="x-shader/x-fragment"></script>
@@ -32,6 +32,27 @@
   
   <script>
     var token = "0=7_j^:6=51%0|E";
+    
+    var myColours = [
+      [77, 95, 109],
+      [16, 38, 73],
+      [168, 168, 161],
+      [139, 145, 143],
+      [112, 124, 122],
+      [217, 212, 195],
+      [35, 65, 95],
+      [119, 132, 130],
+      [196, 195, 181],
+      [131, 138, 140],
+    ];
+
+    myStops = Array.from(
+      {length: 10}, 
+      () => Array.from(
+        {length: 2}, 
+        () => 0.2 + Math.random() * 0.6
+      )
+    );
   </script>
   
   </head>
@@ -218,20 +239,20 @@
           </div>
           <div class="colour-values" id="colour-vals-9">R:107/G:191/B:208</div>
         </div>
-        </div>
+    </div>
     <div id="celeste-bottom">
             <div id="location0" class="location-container">
-          <div>Madrid, Spain</div>
-          <div>Lat_&gt; 38.339053 Long_&gt; -0.4879605</div>
+          <div>Paris, France</div>
+          <div>Lat_&gt; 48.855678 Long_&gt; 2.390689</div>
         </div>
             <div id="location1" class="location-container data-active">
-          <div>Bogota, Colombia</div>
-          <div>Lat_&gt; 4.610276 Long_&gt; -74.069144</div>
-        </div>
+          <div>Sydney, Australia</div>
+          <div>Lat_&gt; -33.851662 Long_&gt; 151.285849</div>
         </div>
     </div>
     <div id="license">Celeste by Soliman Lopez and Nathan Starchild<br>
         License: AGPLv3, <a href="https://github.com/nathanStarchild/celeste">Source Code</a>
+    </div>
     </div>
   
     <canvas id="celeste-canvas" width="1855" height="952"></canvas>

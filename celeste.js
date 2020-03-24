@@ -9,8 +9,8 @@ var viewportData;
 // Global uniforms
 var timeLocation, viewportLocation, coloursLocation, colourPositionsLocation, linePositionLocation;
 var oldColours;
-var newColours = myColours;
-var newStops = myStops;
+var newColours = JSON.parse(JSON.stringify(myColours));
+var newStops = JSON.parse(JSON.stringify(myStops));
 var newDream = 0;
 var colIdx;
 var cTotal = 10;
@@ -30,7 +30,25 @@ var stopN = 0
 var linePosition = myStops[0];
 var lineDisplace = [0, 0];
 
-var locationData = [{"location_str":"Madrid","display_name":"Madrid, Spain","timezone_str":"Europe\/London","lat":"38.339053","long":"-0.4879605","latest_json":{"blueness":0.00234375,"dreaminess":1,"coordinates":[[112,362],[204,199],[169,336],[674,559],[418,284],[687,57],[549,7],[136,337],[758,39],[654,135]],"colours":[[75,98,140],[0,256,249],[93,104,150],[0,256,158],[78,101,145],[0,110,256],[16,25,68],[256,0,92],[97,109,151],[256,0,196]],"brightness":0.00234375,"dimensions":[800,600]}},{"location_str":"Bogota","display_name":"Bogota, Colombia","timezone_str":"America\/Bogota","lat":"4.610276","long":"-74.069144","latest_json":{"blueness":0.362890625,"brightness":0.324609375,"dreaminess":0.2513020833333335,"colours":[[124,67,60],[0,256,30],[2,0,109],[64,52,56],[0,0,129],[144,129,110],[111,106,103],[107,103,100],[87,73,72],[141,126,107]],"coordinates":[[44,447],[369,537],[87,546],[4,413],[12,538],[362,407],[796,141],[775,169],[49,305],[352,425]],"dimensions":[800,600]}}];
+var locationData = [{"location_str":"Paris","display_name":"Paris, France","timezone_str":"Europe\/Paris","lat":"48.855678","long":"2.390689","latest_json":{"blueness":0.00234375,"dreaminess":1,"coordinates":[[112,362],[204,199],[169,336],[674,559],[418,284],[687,57],[549,7],[136,337],[758,39],[654,135]],"colours":[[75,98,140],[99,56,249],[93,104,150],[0,256,158],[78,101,145],[77,110,256],[16,25,68],[156,0,92],[97,109,151],[256,0,196]],"brightness":0.00234375,"dimensions":[800,600]}},
+{"location_str":"Sydney","display_name":"Sydney, Australia","timezone_str":"Australia\/Sydney","lat":"-33.851662","long":"151.285849","latest_json":{"colours": [[170, 179, 196], [46, 53, 63], [200, 179, 152], [43, 53, 65], [193, 203, 215], [167, 163, 160], [81, 88, 104], [47, 50, 57], [181, 182, 186], [212, 216, 227]], "dimensions": [5312, 2988], "coordinates": [[2367, 139], [362, 1836], [3358, 1485], [678, 1727], [1603, 416], [4863, 1055], [3010, 214], [4265, 2566], [1351, 930], [2188, 567]], "imageFile": "20200317_065848.jpg", "blueness": 0.556640625, "brightness": 0.537890625, "dreaminess": 0.0}}];
+
+var storedData = [
+  {"colours": [[170, 179, 196], [46, 53, 63], [200, 179, 152], [43, 53, 65], [193, 203, 215], [167, 163, 160], [81, 88, 104], [47, 50, 57], [181, 182, 186], [212, 216, 227]], "dimensions": [5312, 2988], "coordinates": [[2367, 139], [362, 1836], [3358, 1485], [678, 1727], [1603, 416], [4863, 1055], [3010, 214], [4265, 2566], [1351, 930], [2188, 567]], "imageFile": "20200317_065848.jpg", "blueness": 0.556640625, "brightness": 0.537890625, "dreaminess": 0.0},
+  {"colours": [[59, 70, 88], [218, 217, 213], [28, 34, 46], [96, 88, 85], [41, 49, 60], [84, 73, 71], [185, 207, 220], [238, 208, 148], [221, 221, 213], [208, 208, 200]], "dreaminess": 0.0, "blueness": 0.525, "coordinates": [[860, 939], [4165, 591], [218, 2178], [4276, 2663], [1632, 2636], [5052, 2244], [1750, 240], [4617, 1698], [3853, 967], [4829, 1009]], "imageFile": "20200317_071644.jpg", "brightness": 0.5334635416666667, "dimensions": [5312, 2988]},
+  {"colours": [[93, 97, 98], [131, 133, 130], [127, 127, 129], [133, 136, 129], [157, 158, 153], [123, 125, 124], [126, 128, 125], [169, 167, 170], [125, 129, 128], [82, 86, 85]], "dreaminess": 0.0, "coordinates": [[649, 571], [484, 88], [758, 224], [311, 293], [499, 238], [676, 184], [509, 80], [794, 112], [623, 143], [117, 351]], "blueness": 0.496484375, "dimensions": [800, 600], "brightness": 0.49778645833333335},
+  {"imageFile": "20200317_071905.jpg", "dreaminess": 0.47829861111111116, "coordinates": [[2221, 675], [1458, 2574], [4567, 1924], [1899, 360], [5283, 1790], [2180, 2975], [4746, 824], [64, 636], [1693, 1689], [2019, 6]], "dimensions": [5312, 2988], "brightness": 0.2565104166666667, "colours": [[221, 216, 210], [0, 256, 138], [41, 45, 44], [256, 0, 140], [165, 117, 69], [55, 59, 62], [67, 60, 67], [44, 47, 56], [137, 94, 60], [44, 56, 72]], "blueness": 0.241796875},
+  {"dimensions": [800, 600], "coordinates": [[61, 494], [672, 420], [183, 192], [356, 432], [352, 379], [782, 71], [44, 13], [4, 367], [51, 411], [654, 14]], "blueness": 0.09453125, "brightness": 0.15950520833333334, "colours": [[121, 0, 256], [248, 185, 154], [108, 0, 256], [191, 127, 91], [256, 0, 164], [95, 32, 23], [140, 256, 0], [2, 0, 1], [0, 1, 5],[125, 72, 82]], "dreaminess": 0.8016493055555556},
+  {"coordinates": [[890, 1209], [5229, 949], [653, 1530], [4899, 875], [4085, 1918], [209, 219], [2810, 1895], [4214, 445], [2246, 2486], [3611, 326]], "dreaminess": 0.0, "imageFile": "20200317_071857.jpg", "blueness": 0.4171875, "brightness": 0.4217447916666667, "dimensions": [5312, 2988], "colours": [[59, 70, 88], [110, 110, 108], [34, 45, 63], [123, 105, 85], [98, 87, 81], [99, 125, 148], [81, 79, 82], [209, 191, 167], [38, 48, 57], [238, 222, 189]]},
+  {"blueness": 0.362890625, "brightness": 0.324609375, "dreaminess": 0.2513020833333335, "colours": [[124, 67, 60], [0, 256, 30], [2, 0, 109], [64, 52, 56], [0, 0, 129], [144, 129, 110], [111, 106, 103], [107, 103, 100], [87, 73, 72], [141, 126, 107]], "coordinates": [[44, 447], [369, 537], [87, 546], [4, 413], [12, 538], [362, 407], [796, 141], [775, 169], [49, 305], [352, 425]], "dimensions": [800, 600]},
+  {"colours": [[201, 197, 196], [82, 81, 79], [1, 6, 0], [21, 23, 22], [153, 156, 165], [123, 126, 143], [137, 140, 155], [30, 37, 30], [134, 117, 97], [75, 74, 72]], "imageFile": "20200317_064910.jpg", "coordinates": [[1505, 1088], [3073, 2791], [5091, 2725], [4809, 2828], [1047, 2896], [497, 2225], [668, 1175], [4461, 1556], [2734, 931], [3393, 2145]], "dimensions": [5312, 2988], "brightness": 0.37408854166666666, "blueness": 0.374609375, "dreaminess": 0.08637152777777801},
+  {"brightness": 0.001953125, "blueness": 0.001953125, "dreaminess": 1.0, "coordinates": [[510, 469], [66, 156], [223, 44], [731, 384], [212, 336], [640, 207], [33, 380], [775, 569], [261, 204], [470, 146]], "dimensions": [800, 600], "colours": [[158, 154, 151],[140, 142, 141], [256, 135, 0], [120, 119, 117],  [85, 0, 256], [256, 0, 162], [85, 78, 86], [256, 0, 83], [152, 148, 147], [256, 19, 0]]},
+  {"brightness": 0.5614583333333333, "dreaminess": 0.0, "coordinates": [[4159, 211], [1321, 2620], [3453, 2834], [12, 2541], [683, 2488], [136, 1729], [1017, 171], [1604, 2179], [706, 331], [2071, 645]], "blueness": 0.579296875, "imageFile": "20200317_065837.jpg", "colours": [[231, 228, 221], [80, 88, 99], [82, 91, 100], [80, 90, 102], [78, 90, 104], [101, 113, 129], [216, 213, 208], [86, 95, 110], [212, 209, 202], [227, 219, 208]], "dimensions": [5312, 2988]},
+  {"brightness": 0.4513020833333333, "blueness": 0.448046875, "coordinates": [[369, 481], [69, 280], [751, 55], [18, 424], [369, 89], [310, 174], [422, 546], [55, 123], [677, 273], [321, 154]], "dreaminess": 0.0, "dimensions": [800, 600], "colours": [[124, 131, 124], [120, 122, 119], [70, 67, 74], [108, 112, 111], [130, 132, 127], [153, 152, 147], [97, 106, 103], [107, 107, 107], [97, 97, 97], [143, 144, 138]]},
+  {"dimensions": [800, 600], "coordinates": [[516, 171], [647, 169], [253, 421], [495, 58], [164, 251], [602, 12], [205, 379], [267, 266], [641, 568], [455, 64]], "dreaminess": 0.0, "blueness": 0.503515625, "colours": [[85, 98, 114], [93, 98, 117], [124, 138, 151], [55, 64, 95], [86, 97, 115], [83, 82, 100], [118, 132, 145], [96, 108, 124], [244, 236, 233], [54, 68, 95]], "brightness": 0.44895833333333335},
+  {"coordinates": [[2, 573], [736, 380], [81, 120], [320, 508], [21, 359], [355, 564], [16, 132], [121, 184], [783, 526], [774, 175]], "brightness": 0.33932291666666664, "blueness": 0.41953125, "colours": [[104, 121, 137], [256, 0, 167],[143, 148, 151], [9, 28, 68], [60, 79, 96], [1, 15, 52], [12, 34, 75], [255, 255, 253], [45, 59, 88],  [23, 30, 74]], "dimensions": [800, 600], "dreaminess": 0.20225694444444464},
+  {"colours": [[106, 94, 130], [256, 0, 136], [84, 72, 112], [256, 192, 0], [127, 116, 158], [219, 256, 0], [101, 98, 143], [0, 256, 101], [108, 101, 145], [256, 0, 240]], "dreaminess": 1.0, "blueness": 0.000390625, "coordinates": [[292, 347], [609, 322], [216, 424], [754, 227], [511, 100], [791, 76], [309, 520], [432, 106], [98, 173], [628, 186]], "dimensions": [800, 600], "brightness": 0.000390625}
+]
 
 let cLoop = {
   'start': new Date().getTime(),
@@ -46,26 +64,33 @@ function sum(arr) {
 //since we use "defer" on the script, we know the DOM has loaded
 updateColours(myColours, myColours.length);
 
-function getLatestJson(n){
-    var http = new XMLHttpRequest();
-    // var token = document.querySelector('meta[name="csrf-token"]').content;
-    var url = "http://celeste.solimanlopez.com/api/latestJson";
+// function getLatestJson(n){
+//     var http = new XMLHttpRequest();
+//     // var token = document.querySelector('meta[name="csrf-token"]').content;
+//     var url = "http://celeste.solimanlopez.com/api/latestJson";
     
-    http.open("GET", url, true);
+//     http.open("GET", url, true);
 
-    //Send the proper header information along with the request
-    // http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.setRequestHeader('App-Key', token);
-    http.setRequestHeader('Location', locationData[n]['location_str']);
+//     //Send the proper header information along with the request
+//     // http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     http.setRequestHeader('App-Key', token);
+//     http.setRequestHeader('Location', locationData[n]['location_str']);
 
-    http.onreadystatechange = function() {
-        // State 4 is completed
-        if(http.readyState == 4 && http.status == 200 ) {
-            locationData[n]['latest_json'] = JSON.parse(http.responseText);
-            updatePage(n+1);
-        }
-    }
-    http.send();
+//     http.onreadystatechange = function() {
+//         // State 4 is completed
+//         if(http.readyState == 4 && http.status == 200 ) {
+//             locationData[n]['latest_json'] = JSON.parse(http.responseText);
+//             updatePage(n+1);
+//         }
+//     }
+//     http.send();
+// }
+
+var si = 0;
+function getLatestJson(n) {
+  locationData[n].latest_json = storedData[si];
+  si = (si + 1) % storedData.length;
+  updatePage(n+1);
 }
 
 function updatePage(n){
@@ -83,13 +108,14 @@ function updatePage(n){
         dataSource[i*l+loc] = loc;
       }
     }
+    newColours.sort((a,b) => sum(a) -  sum(b));
     newDream = locationData.reduce((total, dat, idx, arr) => total + dat.latest_json.dreaminess/arr.length, 0);
-    $('#dreaming').text(newDream*100+'%');
-    $('#realLight').text((1-newDream)*100+'%');
+    $('#dreaming').text(Math.round(newDream*100)+'%');
+    $('#realLight').text(Math.round((1-newDream)*100)+'%');
   }
 }
 
-updatePage(3);
+updatePage(0);
 setInterval(updatePage, 60000, 0);
 
 class Perlin {

@@ -1,4 +1,8 @@
 
+      body{
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+      
       #celeste-canvas {
         width: 100%;
         height: 100%;
